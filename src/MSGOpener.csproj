@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>MSGOpener</AssemblyName>
+    <RootNamespace>MSGViewer</RootNamespace>
+    <ApplicationIcon>Assets\msg_opener.ico</ApplicationIcon>
+    <Version>1.1.0</Version>
+    <Product>MSG Opener</Product>
+    <Company>MSG Opener</Company>
+    <Description>Visor de archivos Outlook .msg</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Assets\msg_opener.ico" />
+    <Resource Include="Assets\msg_opener.png" />
+    <PackageReference Include="MsgReader" Version="6.1.2" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4191.47" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,325 @@
+<Window x:Class="MSGViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        Title="MSG Opener"
+        Icon="Assets/msg_opener.ico"
+        Width="1050"
+        Height="760"
+        MinWidth="760"
+        MinHeight="520"
+        AllowDrop="True"
+        Drop="Window_Drop"
+        DragOver="Window_DragOver"
+        Background="{DynamicResource WindowBg}">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="62"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <!-- ================= BARRA SUPERIOR ================= -->
+
+        <Border Grid.Row="0"
+                Background="{DynamicResource Surface}"
+                BorderBrush="{DynamicResource BorderLight}"
+                BorderThickness="0,0,0,1">
+
+            <Grid Margin="22,0">
+
+                <!-- LOGO Y NOMBRE -->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                    <Image Source="Assets/msg_opener.png"
+                           Width="38"
+                           Height="38"
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+
+                    <StackPanel Margin="11,0,0,0" VerticalAlignment="Center">
+
+                        <TextBlock Text="MSG Opener"
+                                   FontSize="17"
+                                   FontWeight="SemiBold"
+                                   Foreground="{DynamicResource TextPrimary}"/>
+
+                        <TextBlock x:Name="SubtitleText"
+                                   FontSize="11"
+                                   Foreground="{DynamicResource TextSecondary}"
+                                   Margin="0,1,0,0"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+
+                <!-- BOTONES SUPERIORES -->
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+
+                    <Button x:Name="OpenButton"
+                            Style="{StaticResource PrimaryButton}"
+                            Click="Open_Click"/>
+
+                    <Button x:Name="PrintButton"
+                            Style="{StaticResource SecondaryButton}"
+                            Margin="8,0,0,0"
+                            Click="Print_Click"/>
+
+                    <Button x:Name="SettingsButton"
+                            Style="{StaticResource SecondaryButton}"
+                            Margin="8,0,0,0"
+                            Click="Settings_Click"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ================= DATOS DEL CORREO ================= -->
+
+        <Border Grid.Row="1"
+                Background="{DynamicResource Surface}"
+                Margin="20,18,20,0"
+                Padding="24,20"
+                CornerRadius="10"
+                BorderBrush="{DynamicResource BorderLight}"
+                BorderThickness="1">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="14"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- ASUNTO -->
+                <TextBlock Grid.Row="0"
+                           x:Name="SubjectText"
+                           FontSize="21"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource TextPrimary}"
+                           TextWrapping="Wrap"/>
+
+                <!-- REMITENTE -->
+                <Grid Grid.Row="2" Margin="0,0,0,6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="95"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               x:Name="FromLabel"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextSecondary}"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Column="1"
+                               x:Name="FromText"
+                               Text="—"
+                               FontSize="13"
+                               Foreground="{DynamicResource TextPrimary}"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock Grid.Column="2"
+                               x:Name="DateText"
+                               Text="—"
+                               FontSize="12"
+                               Foreground="{DynamicResource TextSecondary}"
+                               VerticalAlignment="Center"
+                               Margin="20,0,0,0"/>
+                </Grid>
+
+                <!-- DESTINATARIO -->
+                <Grid Grid.Row="3" Margin="0,0,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="95"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               x:Name="ToLabel"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextSecondary}"/>
+
+                    <TextBlock Grid.Column="1"
+                               x:Name="ToText"
+                               Text="—"
+                               FontSize="12"
+                               Foreground="{DynamicResource TextSecondary}"
+                               TextWrapping="Wrap"/>
+                </Grid>
+
+                <!-- CC -->
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="95"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               x:Name="CcLabel"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextSecondary}"/>
+
+                    <TextBlock Grid.Column="1"
+                               x:Name="CcText"
+                               Text="—"
+                               FontSize="12"
+                               Foreground="{DynamicResource TextSecondary}"
+                               TextWrapping="Wrap"/>
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ================= CUERPO DEL CORREO ================= -->
+        <!-- Se mantiene sobre fondo blanco aun en modo oscuro: muchos correos traen
+             colores propios y se leerían mal sobre negro. -->
+
+        <Border Grid.Row="2"
+                Background="White"
+                Margin="20,12"
+                CornerRadius="10"
+                BorderBrush="{DynamicResource BorderLight}"
+                BorderThickness="1"
+                Padding="1">
+
+            <wv2:WebView2 x:Name="BodyView"/>
+
+        </Border>
+
+
+        <!-- ================= ADJUNTOS ================= -->
+
+        <Border Grid.Row="3"
+                Background="{DynamicResource Surface}"
+                Margin="20,0,20,10"
+                Padding="18,12"
+                CornerRadius="10"
+                BorderBrush="{DynamicResource BorderLight}"
+                BorderThickness="1">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           x:Name="AttachmentHeader"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource TextPrimary}"
+                           Margin="2,0,2,8"/>
+
+                <ListBox Grid.Row="1"
+                         x:Name="AttachmentsList"
+                         MaxHeight="130"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         Padding="0">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+
+                            <Border Background="{DynamicResource ItemBg}"
+                                    BorderBrush="{DynamicResource ItemBorder}"
+                                    BorderThickness="1"
+                                    CornerRadius="7"
+                                    Padding="9,7"
+                                    Margin="0,3">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0"
+                                                Orientation="Horizontal"
+                                                VerticalAlignment="Center">
+
+                                        <Border Width="30"
+                                                Height="30"
+                                                Background="{DynamicResource AccentSoft}"
+                                                CornerRadius="6"
+                                                VerticalAlignment="Center">
+                                            <TextBlock Text="📎"
+                                                       FontSize="14"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
+
+                                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding FileName}"
+                                                       FontSize="12"
+                                                       FontWeight="SemiBold"
+                                                       Foreground="{DynamicResource TextPrimary}"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                            <TextBlock Text="{Binding SizeText}"
+                                                       FontSize="10"
+                                                       Foreground="{DynamicResource TextSecondary}"
+                                                       Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    <Button Grid.Column="1"
+                                            Content="{Binding OpenLabel}"
+                                            Tag="{Binding}"
+                                            Style="{StaticResource AttachmentButton}"
+                                            Click="OpenAttachment_Click"
+                                            VerticalAlignment="Center"/>
+
+                                    <Button Grid.Column="2"
+                                            Content="{Binding SaveLabel}"
+                                            Tag="{Binding}"
+                                            Style="{StaticResource AttachmentButton}"
+                                            Click="SaveAttachment_Click"
+                                            VerticalAlignment="Center"/>
+                                </Grid>
+
+                            </Border>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ================= PIE DE PÁGINA ================= -->
+
+        <TextBlock Grid.Row="4"
+                   x:Name="FooterText"
+                   FontSize="11"
+                   Foreground="{DynamicResource TextSecondary}"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,24,12"/>
+
+    </Grid>
+
+</Window>
