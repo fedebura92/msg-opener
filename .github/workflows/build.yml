@@ -25,15 +25,25 @@ jobs:
           $v = if ("${{ github.ref_type }}" -eq "tag") { "${{ github.ref_name }}".TrimStart('v') } else { "1.1.0" }
           ./build-windows.ps1 -Version $v
 
+      - name: Write release notes (with SHA-256)
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem dist/*.exe | Select-Object -First 1
+          $hash = (Get-FileHash $exe.FullName -Algorithm SHA256).Hash
+          $ver = $exe.BaseName -replace '^MSGOpener-Setup-', ''
+          (Get-Content .github/RELEASE_TEMPLATE.md -Raw -Encoding UTF8) `
+            -replace '\{\{VERSION\}\}', $ver `
+            -replace '\{\{SHA256\}\}', $hash |
+            Set-Content release-notes.md -Encoding UTF8
+
       - uses: actions/upload-artifact@v4
         with:
           name: MSGOpener-Setup
           path: dist/*.exe
 
-      # Al subir una etiqueta "v1.1.0" se crea la Release con el instalador adjunto.
       - name: Publish GitHub Release
         if: github.ref_type == 'tag'
         uses: softprops/action-gh-release@v2
         with:
           files: dist/*.exe
-          generate_release_notes: true
+          body_path: release-notes.md

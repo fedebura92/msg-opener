@@ -1,0 +1,86 @@
+﻿MSG Opener - Terms of use / Términos de uso
+Copyright (c) 2026 Federico Buraczewski. All rights reserved. / Todos los derechos reservados.
+
+======================================================================
+ENGLISH
+======================================================================
+
+1. Ownership. MSG Opener (the "Software"), including its source code, is the
+   property of Federico Buraczewski. No license to the source code is granted.
+
+2. Permission to use. You may download, install and use the Software free of
+   charge, for personal or internal business purposes. You may share the link
+   to the official download page: https://github.com/fedebura92/msg-opener
+
+3. Restrictions. Without prior written permission from the author you may not:
+   (a) copy, modify, adapt or create derivative works from the source code;
+   (b) redistribute the Software or its source code, other than by sharing the
+       link above;
+   (c) sell, rent, lend or sublicense the Software;
+   (d) remove copyright or license notices;
+   (e) reverse engineer or decompile the Software, except to the extent that
+       applicable law expressly permits it despite this restriction.
+
+4. Third-party components. The Software includes third-party components that
+   are licensed under their own terms. See THIRD-PARTY-NOTICES.md. Nothing in
+   these terms limits your rights under those licenses.
+
+5. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+6. Limitation of liability. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW,
+   IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE. Nothing in these terms excludes liability that cannot be
+   excluded under applicable law.
+
+7. Trademarks. Microsoft, Windows, Outlook and WebView2 are trademarks of
+   Microsoft Corporation. MSG Opener is an independent project and is not
+   affiliated with, endorsed by or sponsored by Microsoft.
+
+See also DISCLAIMER.md.
+
+======================================================================
+ESPAÑOL
+======================================================================
+
+1. Titularidad. MSG Opener (el "Software"), incluido su código fuente, es
+   propiedad de Federico Buraczewski. No se otorga ninguna licencia sobre el
+   código fuente.
+
+2. Permiso de uso. Podés descargar, instalar y usar el Software sin costo, con
+   fines personales o para uso interno de tu organización. Podés compartir el
+   enlace a la página oficial de descarga:
+   https://github.com/fedebura92/msg-opener
+
+3. Restricciones. Sin autorización previa y por escrito del autor, no podés:
+   (a) copiar, modificar, adaptar ni crear obras derivadas del código fuente;
+   (b) redistribuir el Software ni su código fuente, salvo compartiendo el
+       enlace indicado arriba;
+   (c) vender, alquilar, prestar ni sublicenciar el Software;
+   (d) eliminar los avisos de derechos de autor o de licencia;
+   (e) aplicar ingeniería inversa ni descompilar el Software, salvo en la
+       medida en que la ley aplicable lo permita expresamente a pesar de esta
+       restricción.
+
+4. Componentes de terceros. El Software incluye componentes de terceros que se
+   rigen por sus propias licencias. Ver THIRD-PARTY-NOTICES.md. Estos términos
+   no limitan tus derechos bajo esas licencias.
+
+5. Sin garantía. EL SOFTWARE SE ENTREGA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO,
+   EXPRESA O IMPLÍCITA, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS DE
+   COMERCIABILIDAD, IDONEIDAD PARA UN FIN PARTICULAR Y NO INFRACCIÓN.
+
+6. Limitación de responsabilidad. EN LA MÁXIMA MEDIDA PERMITIDA POR LA LEY
+   APLICABLE, EL AUTOR NO SERÁ RESPONSABLE POR RECLAMOS, DAÑOS U OTRAS
+   RESPONSABILIDADES, YA SEA POR CONTRATO, AGRAVIO U OTRO MOTIVO, QUE SURJAN
+   DEL SOFTWARE, DE SU USO O DE OTRAS OPERACIONES CON EL SOFTWARE. Estos
+   términos no excluyen responsabilidades que la ley no permita excluir.
+
+7. Marcas. Microsoft, Windows, Outlook y WebView2 son marcas de Microsoft
+   Corporation. MSG Opener es un proyecto independiente y no está afiliado,
+   respaldado ni patrocinado por Microsoft.
+
+Ver también DISCLAIMER.md.

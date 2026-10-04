@@ -66,3 +66,10 @@ una vez: por eso el instalador abre la pantalla de Configuración al final.
 
 - Compilación completa y prueba con `.msg` reales (imágenes `cid:`, adjuntos).
 - Instalación/desinstalación en una PC limpia y en una con Outlook.
+
+## Licencia
+
+Copyright (c) 2026 Federico Buraczewski. Todos los derechos reservados.
+Uso gratuito del programa; el código fuente no se puede copiar, modificar ni
+redistribuir sin autorización. Ver `LICENSE.txt`, `DISCLAIMER.md` (sin garantías)
+y `THIRD-PARTY-NOTICES.md` (componentes de terceros).
