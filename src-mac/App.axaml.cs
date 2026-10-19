@@ -33,7 +33,7 @@ public partial class App : Application
 
             // En macOS, el doble clic sobre un .msg (o "Abrir con") llega como
             // un evento de activación de archivo, no como argumento.
-            if (TryGetFeature<IActivatableLifetime>() is { } activatable)
+            if (TryGetFeature(typeof(IActivatableLifetime)) is IActivatableLifetime activatable)
             {
                 activatable.Activated += (_, e) =>
                 {
