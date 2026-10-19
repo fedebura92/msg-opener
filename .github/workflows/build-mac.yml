@@ -1,0 +1,46 @@
+name: Build macOS
+on:
+  push:
+    tags: ['mac-v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+
+      - name: Build .app and .dmg (arm64 + x64)
+        shell: bash
+        run: |
+          if [ "${{ github.ref_type }}" = "tag" ]; then V="${GITHUB_REF_NAME#mac-v}"; else V="0.1.0"; fi
+          echo "VERSION=$V" >> "$GITHUB_ENV"
+          ./scripts/build-mac.sh "$V"
+
+      - name: Write release notes (with SHA-256)
+        shell: bash
+        run: |
+          ARM=$(shasum -a 256 "dist-mac/MSGOpener-Mac-$VERSION-arm64.dmg" | cut -d' ' -f1)
+          X64=$(shasum -a 256 "dist-mac/MSGOpener-Mac-$VERSION-x64.dmg" | cut -d' ' -f1)
+          sed -e "s/{{VERSION}}/$VERSION/g" -e "s/{{SHA_ARM64}}/$ARM/g" -e "s/{{SHA_X64}}/$X64/g" \
+            .github/RELEASE_TEMPLATE_MAC.md > release-notes.md
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MSGOpener-Mac
+          path: dist-mac/*.dmg
+
+      - name: Publish GitHub pre-release
+        if: github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: MSG Opener for Mac ${{ env.VERSION }} (beta)
+          files: dist-mac/*.dmg
+          body_path: release-notes.md
+          prerelease: true

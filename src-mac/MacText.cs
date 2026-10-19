@@ -1,0 +1,24 @@
+namespace MSGViewer;
+
+/// <summary>Textos propios de la versión Mac (los demás vienen de Strings.cs).</summary>
+public static class MacText
+{
+    private static readonly Dictionary<string, string> ViewFormattedByLang = new()
+    {
+        ["es"] = "Ver con formato en el navegador",
+        ["en"] = "View formatted in browser",
+        ["de"] = "Formatiert im Browser anzeigen",
+        ["fr"] = "Afficher avec mise en forme dans le navigateur",
+        ["pt"] = "Ver com formatação no navegador",
+        ["zh"] = "在浏览器中查看格式化内容",
+        ["ja"] = "ブラウザで書式付きで表示",
+        ["ko"] = "브라우저에서 서식 있는 보기",
+        ["pl"] = "Pokaż z formatowaniem w przeglądarce",
+        ["ru"] = "Открыть с форматированием в браузере",
+        ["nl"] = "Opgemaakt weergeven in browser",
+        ["hi"] = "ब्राउज़र में फ़ॉर्मेट के साथ देखें",
+    };
+
+    public static string ViewFormatted =>
+        ViewFormattedByLang.TryGetValue(Loc.Current, out var v) ? v : ViewFormattedByLang["en"];
+}

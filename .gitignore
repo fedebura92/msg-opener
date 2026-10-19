@@ -4,3 +4,5 @@ publish/
 dist/
 *.user
 .vs/
+publish-mac/
+dist-mac/

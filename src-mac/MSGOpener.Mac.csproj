@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>MSGOpener</AssemblyName>
+    <RootNamespace>MSGViewer</RootNamespace>
+    <Version>0.1.0</Version>
+    <Product>MSG Opener</Product>
+    <BuiltInComInteropSupport>false</BuiltInComInteropSupport>
+    <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.*" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.*" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.*" />
+    <PackageReference Include="MsgReader" Version="6.1.2" />
+  </ItemGroup>
+
+  <!-- Código compartido con la versión de Windows (no depende de WPF). -->
+  <ItemGroup>
+    <Compile Include="..\src\Strings.cs" Link="Shared\Strings.cs" />
+    <Compile Include="..\src\Localization.cs" Link="Shared\Localization.cs" />
+    <Compile Include="..\src\AppSettings.cs" Link="Shared\AppSettings.cs" />
+    <Compile Include="..\src\AttachmentItem.cs" Link="Shared\AttachmentItem.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+</Project>

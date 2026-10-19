@@ -15,6 +15,8 @@ license, which is independent from the MSG Opener terms (`LICENSE.txt`).
 | Microsoft.Web.WebView2 (SDK) | 1.0.4191.47 | Microsoft | Licencia de Microsoft incluida en el paquete / Microsoft license included in the package | https://www.nuget.org/packages/Microsoft.Web.WebView2 |
 | Microsoft WebView2 Runtime | (instalado en Windows / installed in Windows) | Microsoft | Microsoft Software License Terms | https://developer.microsoft.com/microsoft-edge/webview2/ |
 | Microsoft.IO.RecyclableMemoryStream, Microsoft.Maui.Graphics, Microsoft.Bcl.Cryptography, System.Formats.Asn1, System.Numerics.Vectors, System.Security.Cryptography.Pkcs | 3.0.1 / 10.0.101 / 10.0.12 / 10.0.12 / 4.6.1 / 10.0.12 | Microsoft / .NET Foundation | MIT | https://www.nuget.org/ (buscar el paquete / search the package) |
+| Avalonia, Avalonia.Desktop, Avalonia.Themes.Fluent (solo versión Mac / Mac version only) | 11.3.x | AvaloniaUI | MIT | https://github.com/AvaloniaUI/Avalonia |
+| SkiaSharp, HarfBuzzSharp y otras dependencias de Avalonia (solo Mac) / and other Avalonia dependencies (Mac only) | varias / various | Microsoft, AvaloniaUI y colaboradores / contributors | MIT | Ver paquetes NuGet / See NuGet packages |
 | .NET 8 Runtime (incluido en el programa / bundled) | 8.x | Microsoft / .NET Foundation | MIT | https://github.com/dotnet/runtime |
 | Inno Setup (instalador / installer) | 6.5+ | Jordan Russell, Martijn Laan | Inno Setup License | https://jrsoftware.org/isinfo.php |
 

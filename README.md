@@ -73,3 +73,11 @@ Copyright (c) 2026 Federico Buraczewski. Todos los derechos reservados.
 Uso gratuito del programa; el código fuente no se puede copiar, modificar ni
 redistribuir sin autorización. Ver `LICENSE.txt`, `DISCLAIMER.md` (sin garantías)
 y `THIRD-PARTY-NOTICES.md` (componentes de terceros).
+
+## macOS (beta)
+
+Versión separada en `src-mac/` (Avalonia + .NET 8). La de Windows no se modifica.
+Se compila en GitHub Actions (runner macOS) con `.github/workflows/build-mac.yml`
+o, en una Mac, con `./scripts/build-mac.sh 0.1.0`. Genera un `.dmg` para chip Apple
+(arm64) y otro para Intel (x64). Sin firma de Apple: ver las notas de la Release.
+Publicar con una etiqueta `mac-vX.Y.Z` (por ejemplo `mac-v0.1.0`).

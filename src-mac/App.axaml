@@ -1,0 +1,38 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MSGViewer.App"
+             RequestedThemeVariant="Default">
+
+  <Application.Styles>
+    <FluentTheme />
+  </Application.Styles>
+
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+
+        <ResourceDictionary x:Key="Light">
+          <SolidColorBrush x:Key="WindowBg">#F3F4F6</SolidColorBrush>
+          <SolidColorBrush x:Key="Surface">#FFFFFF</SolidColorBrush>
+          <SolidColorBrush x:Key="TextPrimary">#202124</SolidColorBrush>
+          <SolidColorBrush x:Key="TextSecondary">#6B7280</SolidColorBrush>
+          <SolidColorBrush x:Key="BorderLight">#E5E7EB</SolidColorBrush>
+          <SolidColorBrush x:Key="ItemBg">#F9FAFB</SolidColorBrush>
+          <SolidColorBrush x:Key="ItemBorder">#E5E7EB</SolidColorBrush>
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Dark">
+          <SolidColorBrush x:Key="WindowBg">#0A0A0A</SolidColorBrush>
+          <SolidColorBrush x:Key="Surface">#161618</SolidColorBrush>
+          <SolidColorBrush x:Key="TextPrimary">#F3F4F6</SolidColorBrush>
+          <SolidColorBrush x:Key="TextSecondary">#9CA3AF</SolidColorBrush>
+          <SolidColorBrush x:Key="BorderLight">#2A2A2E</SolidColorBrush>
+          <SolidColorBrush x:Key="ItemBg">#1C1C1F</SolidColorBrush>
+          <SolidColorBrush x:Key="ItemBorder">#2E2E33</SolidColorBrush>
+        </ResourceDictionary>
+
+      </ResourceDictionary.ThemeDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+
+</Application>
