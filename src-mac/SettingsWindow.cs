@@ -10,7 +10,7 @@ public sealed class SettingsWindow : Window
     private readonly TextBlock _themeLabel = new() { FontWeight = Avalonia.Media.FontWeight.SemiBold };
     private readonly ComboBox _languageBox = new() { HorizontalAlignment = HorizontalAlignment.Stretch };
     private readonly ComboBox _themeBox = new() { HorizontalAlignment = HorizontalAlignment.Stretch };
-    private readonly Button _closeButton = new() { HorizontalAlignment = HorizontalAlignment.Right, MinWidth = 90 };
+    private readonly Button _closeButton = new() { HorizontalAlignment = HorizontalAlignment.Right, MinWidth = 110 };
 
     private readonly List<string> _languageCodes = new();
     private readonly string[] _themeCodes = { "auto", "light", "dark" };
@@ -83,7 +83,7 @@ public sealed class SettingsWindow : Window
         var names = new List<string>();
 
         _languageCodes.Add("auto");
-        names.Add(Loc.T("langAuto"));
+        names.Add(MacText.Auto);
 
         foreach (var l in Loc.Languages)
         {
@@ -95,7 +95,7 @@ public sealed class SettingsWindow : Window
         var langIndex = _languageCodes.IndexOf(AppSettings.Current.Language);
         _languageBox.SelectedIndex = langIndex < 0 ? 0 : langIndex;
 
-        _themeBox.ItemsSource = new[] { Loc.T("themeAuto"), Loc.T("themeLight"), Loc.T("themeDark") };
+        _themeBox.ItemsSource = new[] { MacText.Auto, Loc.T("themeLight"), Loc.T("themeDark") };
         var themeIndex = Array.IndexOf(_themeCodes, AppSettings.Current.Theme);
         _themeBox.SelectedIndex = themeIndex < 0 ? 0 : themeIndex;
 

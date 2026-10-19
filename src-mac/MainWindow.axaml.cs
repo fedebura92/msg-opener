@@ -43,7 +43,7 @@ public partial class MainWindow : Window
     private void ApplyLanguage()
     {
         OpenButton.Content = Loc.T("openFile");
-        SettingsButton.Content = "⚙  " + Loc.T("settings");
+        SettingsLabel.Text = Loc.T("settings");
         SubtitleText.Text = Loc.T("subtitle");
         FromLabel.Text = Loc.T("from");
         ToLabel.Text = Loc.T("to");
